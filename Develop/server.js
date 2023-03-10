@@ -54,7 +54,7 @@ app.get("/api/notes", (req, res) => {
 */ 
  
  app.post("/notes", (req, res) => {
- 
+// ID added to each note being added to the JSON file
    const {title, text} = req.body;
    const id = noteid();
    const addNote = {
