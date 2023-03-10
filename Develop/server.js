@@ -53,7 +53,7 @@ app.get("/api/notes", (req, res) => {
  /* `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
 */ 
  
- app.post("/notes", (req, res) => {
+ app.post("/api/notes", (req, res) => {
 // ID added to each note being added to the JSON file
    const {title, text} = req.body;
    const id = noteid();
