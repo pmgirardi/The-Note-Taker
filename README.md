@@ -18,7 +18,7 @@ For this assignment, I modified starter code to create an application called The
   Clone the git repository and run npm i in the project directory.
   ## Usage
   Via command-line, navigate into the project directory and run npm start.
- [Link to deployed Heroku app](https://drive.google.com/file/d/1JcQhubpNvDHpW-cnURNH6B7qQJbIxr-V/view)
+ [Link to deployed Heroku app](https://the-note-taker-by-pg.herokuapp.com/)
   ## License
   None.
   ## Contributions
