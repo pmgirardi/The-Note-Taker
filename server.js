@@ -17,7 +17,7 @@ const app = express();
 
 const noteid = require('./noteid');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Middleware to request from public folder
 
@@ -75,6 +75,45 @@ app.get("/api/notes", (req, res) => {
  });
 
  // Updates and deletes notes
+
+
+app.delete('/api/notes/:id', (req, res) => {
+const noteid = req.params.id;
+fs.readFile('./db/db.json', 'utf8', (err, data) => {
+if (err) {
+throw err
+} else {
+console.log('file read successfully');
+}
+
+// log and then parse data
+// console.log(data);
+parsedData = JSON.parse(data);
+
+let newData = [];
+
+// loop through the array and only push notes that do not match the id of the deleted note
+parsedData.forEach(element => {
+if (element.id == noteid) {
+  console.log(`Successfully deleted ${noteid}`);
+} else {
+  newData.push(element);
+}
+});
+
+// write new data to file
+fs.writeFile('./db/db.json', JSON.stringify(newData), (err) => {
+if (err) {
+  throw err;
+} else {
+  console.log('file updated successfully');
+}
+});
+
+// refresh the notes showing
+res.redirect('/api/notes');
+});
+});
 
 
 // app.listen to callback function once express is invoked
